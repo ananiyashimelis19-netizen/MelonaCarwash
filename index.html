@@ -147,43 +147,46 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- 1. Basic Wash -->
-                    <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="text-2xl">🧽</div>
-                                <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-transform text-lg">↓</span>
-                            </div>
-                            <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Basic Wash + Engine By Shampoo</h4>
-                            <div class="package-details hidden mt-4 pt-4 border-t border-white/5">
-                                <ul class="text-gray-400 space-y-2 text-sm font-medium">
-                                    <li>• Body Hand wash with shampoo</li>
-                                    <li>• Interior cleaning</li>
-                                    <li>• Tire cleaning</li>
-                                    <li>• Engine cleaning</li>
-                                </ul>
-                            </div>
-                        </div>
+            <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between h-fit">
+                <div class="flex justify-between items-start mb-4 gap-4">
+                    <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Basic Wash + Engine By Shampoo</h4>
+                    <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-all shrink-0">↓</span>
+                </div>
+                <div class="package-details hidden mt-4 pt-4 border-t border-white/5 space-y-4">
+                    <ul class="text-gray-400 space-y-2 text-sm font-medium">
+                        <li>• Body Hand wash with shampoo</li>
+                        <li>• Interior cleaning</li>
+                        <li>• Tire cleaning</li>
+                        <li>• Engine cleaning</li>
+                    </ul>
+                    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video mt-4">
+                        <video src="basic.mp4" controls preload="metadata" class="w-full h-full object-cover" onclick="event.stopPropagation();">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
+                </div>
+            </div>
 
-                    <!-- 2. Silver Package -->
-                    <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="text-2xl">💨</div>
-                                <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-transform text-lg">↓</span>
-                            </div>
-                            <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Silver Package (Vacuum)</h4>
-                            <div class="package-details hidden mt-4 pt-4 border-t border-white/5">
-                                <ul class="text-gray-400 space-y-2 text-sm font-medium">
-                                    <li>• Body Hand wash with shampoo</li>
-                                    <li>• Interior vacuum floor & seat cleaning</li>
-                                    <li>• Dashboard cream & Airfresh</li>
-                                    <li>• Tire cleaning</li>
-                                    <li>• Engine cleaning</li>
-                                </ul>
-                            </div>
-                        </div>
+            <!-- 2. Silver Package -->
+            <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between h-fit">
+                <div class="flex justify-between items-start mb-4 gap-4">
+                    <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Silver Package (Vacuum Cleaning)</h4>
+                    <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-all shrink-0">↓</span>
+                </div>
+                <div class="package-details hidden mt-4 pt-4 border-t border-white/5 space-y-4">
+                    <ul class="text-gray-400 space-y-2 text-sm font-medium">
+                        <li>• Basic wash packages included</li>
+                        <li>• Interior vacuum floor & seat cleaning</li>
+                        <li>• Tire cleaning</li>
+                        <li>• Engine cleaning</li>
+                    </ul>
+                    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video mt-4">
+                        <video src="vaccum.mp4" controls preload="metadata" class="w-full h-full object-cover" onclick="event.stopPropagation();">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
+                </div>
+            </div>
 
                     <!-- 3. Gold Package -->
                     <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between">
@@ -234,80 +237,79 @@
                         </div>
                     </div>
 
-                    <!-- 5. Platinum Interior -->
-                    <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="text-2xl">🛋️</div>
-                                <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-transform text-lg">↓</span>
-                            </div>
-                            <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Platinum - Interior Detailing <span class="text-xs text-blue-500 block font-normal mt-1">(1 Day Process)</span></h4>
-                            <div class="package-details hidden mt-4 pt-4 border-t border-white/5">
-                                <ul class="text-gray-400 space-y-2 text-sm font-medium">
-                                    <li>• Seat & Floor Carpet removed & washed</li>
-                                    <li>• Roof deep cleaning</li>
-                                    <li>• Dashboard detailing</li>
-                                    <li>• Door panel deep cleaning</li>
-                                    <li>• Tire cleaning</li>
-                                    <li>• Engine chemical cleaning</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <!-- 5. Platinum - Interior Detailing -->
+            <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between h-fit">
+                <div class="flex justify-between items-start mb-4 gap-4">
+                    <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Platinum - Interior Detailing (1 Day)</h4>
+                    <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-all shrink-0">↓</span>
+                </div>
+                <div class="package-details hidden mt-4 pt-4 border-t border-white/5 space-y-4">
+                    <ul class="text-gray-400 space-y-2 text-sm font-medium">
+                        <li>• Seat & Floor Carpet removed and washing</li>
+                        <li>• Roof deep cleaning</li>
+                        <li>• dashboard detailing</li>
+                        <li>• Tire detailing</li>
+                        <li>• Engine chemical Conditioning</li>
+                    </ul>
+                    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video mt-4">
+                        <video src="interior.mp4" controls preload="metadata" class="w-full h-full object-cover" onclick="event.stopPropagation();">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
+                </div>
+            </div>
 
-                    <!-- 6. Diamond Detailing -->
-                    <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="text-2xl">💎</div>
-                                <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-transform text-lg">↓</span>
-                            </div>
-                            <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Diamond - Interior & Exterior Detailing <span class="text-xs text-blue-500 block font-normal mt-1">(1 Day Process)</span></h4>
-                            <div class="package-details hidden mt-4 pt-4 border-t border-white/5">
-                                <ul class="text-gray-400 space-y-2 text-sm font-medium">
-                                    <li>• Seat & Floor Carpet removed & washed</li>
-                                    <li>• Roof deep cleaning</li>
-                                    <li>• Dashboard detailing</li>
-                                    <li>• Door panel deep cleaning</li>
-                                    <li>• Tire cleaning</li>
-                                    <li>• Engine chemical cleaning</li>
-                                    <li>• Machine body polish</li>
-                                    <li>• Window polish</li>
-                                    <li>• Water spot removal</li>
-                                    <li>• Minor scratch removal</li>
-                                    <li>• Tire deep cleaning, Tire black finish</li>
-                                    <li>• Plastic shine protection</li>
-                                    <li>• Head light Restoration</li>
-                                </ul>
-                            </div>
-                        </div>
+            <!-- 6. Diamond Package -->
+            <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between h-fit">
+                <div class="flex justify-between items-start mb-4 gap-4">
+                    <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Diamond - Interior & Exterior Detailing (1 Day)</h4>
+                    <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-all shrink-0">↓</span>
+                </div>
+                <div class="package-details hidden mt-4 pt-4 border-t border-white/5 space-y-4">
+                    <ul class="text-gray-400 space-y-2 text-sm font-medium">
+                         <li>• Seat & Floor Carpet removed and washing</li>
+                        <li>• Roof deep cleaning</li>
+                        <li>• dashboard detailing</li>
+                        <li>• Tire detailing</li>
+                        <li>• Door panel deep cleaning</li>
+                        <li>• Engine chemical Cleaning</li>
+                        <li>• Machine body polish</li>
+                        <li>• window polish</li>
+                        <li>• water spot removal</li>
+                        <li>• Minor scratch removal</li>
+                        <li>• Tire deep cleaning,Tire black finish</li>
+                        <li>• plastic shine protection</li>
+                        <li>• Head light restoration</li>
+                    </ul>
+                    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video mt-4">
+                        <video src="diamond.mp4" controls preload="metadata" class="w-full h-full object-cover" onclick="event.stopPropagation();">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
+                </div>
+            </div>
 
                     <!-- 7. Ceramic Coating -->
-                    <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between lg:col-span-2">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="text-2xl">🛡️</div>
-                                <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-transform text-lg">↓</span>
-                            </div>
-                            <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Ceramic Coating Application</h4>
-<div class="package-details hidden mt-4 pt-4 border-t border-white/5 space-y-4">
-    <p class="text-gray-400 text-sm font-medium">Paint preparation, Machine polish before coating, Ceramic coating application, High gloss protection, Hydrophobic water protection, UV protection.</p>
-    <div class="flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider text-sky-400">
-        <span class="bg-blue-950 px-3 py-1.5 rounded-md border border-blue-800">2 Year Protection</span>
-        <span class="bg-blue-950 px-3 py-1.5 rounded-md border border-blue-800">6 Month Service Guarantee</span>
-    </div>
-    
-    <!-- ADD THIS HERE: Ceramic Coating Video -->
-    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video">
-        <video src="ceramic.mp4" controls preload="metadata" class="w-full h-full object-cover" onclick="event.stopPropagation();">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</div>
-                        </div>
-                    </div>
+                    <<div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between h-fit">
+                <div class="flex justify-between items-start mb-4 gap-4">
+                    <h4 class="text-xl font-bold uppercase italic tracking-tighter text-blue-400 select-none">Ceramic Coating Application</h4>
+                    <span class="arrow text-gray-600 group-hover:text-blue-500 font-bold transition-all shrink-0">↓</span>
+                </div>
+                <div class="package-details hidden mt-4 pt-4 border-t border-white/5 space-y-4">
+                    <ul class="text-gray-400 space-y-2 text-sm font-medium">
+                        <li>• paint preparation</li>
+                        <li>• machine polish before coating</li>
+                        <li>• ceramic coating application</li>
+                        <li>• high gloss,water and UV protection </li>
+                    </ul>
 
+                    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video mt-4">
+                        <video src="ceramic.mp4" controls preload="metadata" class="w-full h-full object-cover" onclick="event.stopPropagation();">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
                     <!-- 8. Engine Chemical -->
                     <div onclick="togglePackage(this)" class="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-600/40 transition-all cursor-pointer flex flex-col justify-between">
                         <div>
@@ -513,6 +515,54 @@ function handleFormSubmit(event) {
     // Paste your actual Telegram details inside these quotes:
     const TELEGRAM_BOT_TOKEN = '8808100679:AAGdpDYA5VpMnmYORqazwPfhLSYnmfe0jd8'; 
     const TELEGRAM_CHAT_ID = '7893519607';     
+
+    const messageText = `🚗 NEW MELONA BOOKING REQUEST 🚗\n\n` +
+                        `📋 Package: ${service}\n` +
+                        `🚘 Vehicle: ${carType}\n` +
+                        `📞 Phone: +251 ${phone}`;
+
+    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    
+    fetch(telegramUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: messageText
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert(`Booking Request Submitted Successfully!\n\nWe will contact you shortly.`);
+            document.getElementById('interactiveBookingForm').reset();
+            closeBookingModal();
+        } else {
+            alert("Telegram Error: Check if your Bot Token or Chat ID are entered correctly.");
+        }
+    })
+    .catch(error => {
+        alert("Network error. Please check your internet connection.");
+    });
+}
+
+// Toggle logic for your services items accordion menu
+function togglePackage(cardElement) {
+    const detailsElement = cardElement.querySelector('.package-details');
+    const arrowElement = cardElement.querySelector('.arrow');
+    
+    if (detailsElement.classList.contains('hidden')) {
+        detailsElement.classList.remove('hidden');
+        arrowElement.textContent = '↑';
+        cardElement.classList.add('border-blue-600/80');
+    } else {
+        detailsElement.classList.add('hidden');
+        arrowElement.textContent = '↓';
+        cardElement.classList.remove('border-blue-600/80');
+    }
+}
+    </script>
+</body>
+</html>   
 
     const messageText = `🚗 NEW MELONA BOOKING REQUEST 🚗\n\n` +
                         `📋 Package: ${service}\n` +
