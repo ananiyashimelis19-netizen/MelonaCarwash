@@ -63,73 +63,172 @@
         </section>
 
         <div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-md px-4 overflow-y-auto py-10">
-            <div class="bg-neutral-900 border border-white/10 rounded-3xl p-8 max-w-lg w-full relative space-y-6 my-auto">
-                <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold">×</button>
+            <div class="bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 md:p-8 max-w-4xl w-full relative shadow-2xl my-auto">
+                <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl font-bold z-10">×</button>
                 
-                <div class="text-center">
-                    <h3 class="text-2xl font-black uppercase italic tracking-tight text-blue-500 mb-2">Book Your Service</h3>
-                    <p class="text-gray-400 text-sm">Please fill out the steps below to request your booking approval.</p>
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <img src="mlogo.jpg" alt="Logo" class="w-6 h-6 rounded-full border border-blue-600">
+                    <h2 class="text-md font-bold uppercase tracking-wider text-gray-200">Melona Car Wash</h2>
                 </div>
-                
-                <hr class="border-white/5">
 
-                <form id="interactiveBookingForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                <form id="interactiveBookingForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
                     
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2">Step 1: Choose Service</label>
-                        <select id="bookingService" required class="w-full bg-neutral-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm">
-                            <option value="" disabled selected>Select a treatment package...</option>
-                            <option value="Basic Wash + Engine By Shampoo">Basic Wash + Engine By Shampoo</option>
-                            <option value="Silver Package (Vacuum Cleaning)">Silver Package (Vacuum Cleaning)</option>
-                            <option value="Gold Package (Polishing)">Gold Package (Polishing)</option>
-                            <option value="Platinum - Exterior Detailing">Platinum - Exterior Detailing</option>
-                            <option value="Platinum - Interior Detailing">Platinum - Interior Detailing (1 Day)</option>
-                            <option value="Diamond - Interior & Exterior Detailing">Diamond - Interior & Exterior Detailing (1 Day)</option>
-                            <option value="Ceramic Coating">Ceramic Coating</option>
-                            <option value="Engine Chemical Cleaning">Engine Chemical Cleaning</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2">Step 2: Type of Car</label>
-                        <select id="bookingCarType" required class="w-full bg-neutral-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm">
-                            <option value="" disabled selected>Select vehicle size & type...</option>
-                            <option value="Normal - Sedan" class="text-white font-normal">Normal: Sedan</option>
-                            <option value="Normal - Compact" class="text-white font-normal">Normal: Compact</option>
-                            <option value="Medium - SUV" class="text-white font-normal">Medium: SUV</option>
-                            <option value="Medium - Mini van" class="text-white font-normal">Medium: Mini van</option>
-                            <option value="Medium - Kin kap pick up" class="text-white font-normal">Medium: Kin kap pick up</option>
-                            <option value="High - Minibus" class="text-white font-normal">High: Minibus</option>
-                            <option value="High - SUV 7 seat" class="text-white font-normal">High: SUV 7 seat</option>
-                            <option value="High - Pick up double" class="text-white font-normal">High: Pick up double</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2">Step 3: Verification Phone Number</label>
-                        <div class="relative">
-                            <span class="absolute left-4 top-3 text-gray-500 font-medium">+251</span>
-                            <input type="tel" id="bookingPhone" required placeholder="912345678" pattern="[0-9]{9}" class="w-full bg-neutral-800 border border-white/10 rounded-xl pl-16 pr-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">1. Service Package</label>
+                            <select id="bookingService" required class="w-full bg-neutral-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 text-xs">
+                                <option value="" disabled selected>Select package...</option>
+                                <option value="Basic Wash + Engine By Shampoo">Basic Wash + Engine By Shampoo</option>
+                                <option value="Silver Package (Vacuum Cleaning)">Silver Package (Vacuum Cleaning)</option>
+                                <option value="Gold Package (Polishing)">Gold Package (Polishing)</option>
+                                <option value="Platinum - Exterior Detailing">Platinum - Exterior Detailing</option>
+                                <option value="Platinum - Interior Detailing">Platinum - Interior Detailing (1 Day)</option>
+                                <option value="Diamond - Interior & Exterior Detailing">Diamond - Interior & Exterior Detailing (1 Day)</option>
+                                <option value="Ceramic Coating">Ceramic Coating</option>
+                                <option value="Engine Chemical Cleaning">Engine Chemical Cleaning</option>
+                            </select>
                         </div>
-                        <p class="text-[11px] text-gray-500 mt-1">Enter your 9-digit mobile number for appointment approval.</p>
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">2. Vehicle Type</label>
+                            <select id="bookingCarType" required class="w-full bg-neutral-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 text-xs">
+                                <option value="" disabled selected>Select type...</option>
+                                <option value="Normal - Sedan">Normal: Sedan</option>
+                                <option value="Normal - Compact">Normal: Compact</option>
+                                <option value="Medium - SUV">Medium: SUV</option>
+                                <option value="Medium - Mini van">Medium: Mini van</option>
+                                <option value="Medium - Kin kap pick up">Medium: Kin kap pick up</option>
+                                <option value="High - Minibus">High: Minibus</option>
+                                <option value="High - SUV 7 seat">High: SUV 7 seat</option>
+                                <option value="High - Pick up double">High: Pick up double</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2">Step 4: Choose Appointment Date</label>
-                        <input type="date" id="bookingDate" required class="w-full bg-neutral-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm scheme-dark">
-                        <p class="text-[11px] text-gray-500 mt-1">Select the clean schedule window you want to lock in.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-white/5 pt-4">
+                        
+                        <div class="md:col-span-5 bg-white text-gray-800 rounded-2xl p-4 shadow-md w-full max-w-[280px] mx-auto md:max-w-none">
+                            <div class="flex items-center justify-between mb-4 px-1">
+                                <button type="button" class="text-gray-400 hover:text-gray-600 border border-gray-200 w-7 h-7 rounded flex items-center justify-center text-sm font-bold"><</button>
+                                <span class="font-bold text-xs text-gray-700 uppercase tracking-wide">June 2026</span>
+                                <button type="button" class="text-gray-400 hover:text-gray-600 border border-gray-200 w-7 h-7 rounded flex items-center justify-center text-sm font-bold">></button>
+                            </div>
+                            
+                            <div class="grid grid-cols-7 text-center text-[10px] font-bold text-gray-400 mb-2">
+                                <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                            </div>
+                            
+                            <div id="calendarDaysGrid" class="grid grid-cols-7 gap-y-2 text-center text-[11px] font-semibold text-gray-700 items-center">
+                                <div class="text-gray-300 pointer-events-none">31</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Monday, Jun 1')">1</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Tuesday, Jun 2')">2</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Wednesday, Jun 3')">3</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Thursday, Jun 4')">4</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Friday, Jun 5')">5</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Saturday, Jun 6')">6</div>
+                                
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Sunday, Jun 7')">7</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Monday, Jun 8')">8</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Tuesday, Jun 9')">9</div>
+                                <div class="bg-[#2563eb] text-white font-bold rounded-full flex items-center justify-center h-6 w-6 mx-auto shadow-sm cursor-pointer" onclick="selectCalendarDay(this, 'Wednesday, Jun 10')">10</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Thursday, Jun 11')">11</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Friday, Jun 12')">12</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Saturday, Jun 13')">13</div>
+                                
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Sunday, Jun 14')">14</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Monday, Jun 15')">15</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Tuesday, Jun 16')">16</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Wednesday, Jun 17')">17</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Thursday, Jun 18')">18</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Friday, Jun 19')">19</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Saturday, Jun 20')">20</div>
+                                
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Sunday, Jun 21')">21</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Monday, Jun 22')">22</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Tuesday, Jun 23')">23</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Wednesday, Jun 24')">24</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Thursday, Jun 25')">25</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Friday, Jun 26')">26</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Saturday, Jun 27')">27</div>
+                                
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Sunday, Jun 28')">28</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Monday, Jun 29')">29</div>
+                                <div class="cursor-pointer py-1 hover:bg-gray-100 rounded-full" onclick="selectCalendarDay(this, 'Tuesday, Jun 30')">30</div>
+                                <div class="text-gray-300 pointer-events-none">1</div>
+                                <div class="text-gray-300 pointer-events-none">2</div>
+                                <div class="text-gray-300 pointer-events-none">3</div>
+                                <div class="text-gray-300 pointer-events-none">4</div>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-7 w-full">
+                            <h3 class="text-xs font-medium text-gray-300 mb-3 text-center md:text-left">
+                                Available times on <span id="selectedDateDisplay" class="font-semibold text-white">Wednesday, Jun 10, 2026</span>
+                            </h3>
+                            
+                            <div id="timeSlotsGrid" class="grid grid-cols-3 gap-2">
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">6:00 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">6:30 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">7:00 AM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">7:30 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">8:00 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">8:30 AM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">9:00 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">9:30 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#2563eb] text-white py-2 rounded-lg text-[11px] font-bold shadow-md ring-2 ring-blue-400 ring-offset-2 ring-offset-[#1a1a1a]">10:00 AM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">10:30 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">11:00 AM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">11:30 AM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">12:00 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">12:30 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">1:00 PM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">1:30 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">2:00 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">2:30 PM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">3:00 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">3:30 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">4:00 PM</button>
+                                
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">4:30 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">5:00 PM</button>
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">5:30 PM</button>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 mt-2">
+                                <button type="button" onclick="selectTimeSlot(this)" class="bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition">6:00 PM</button>
+                            </div>
+                        </div>
                     </div>
 
-                    <hr class="border-white/5">
+                    <div class="border-t border-white/5 pt-4">
+                        <label class="block text-[11px] uppercase tracking-widest text-gray-400 font-bold mb-2 text-center md:text-left">Verification Phone Number</label>
+                        <div class="relative max-w-sm mx-auto md:mx-0">
+                            <span class="absolute left-4 top-3 text-gray-500 font-medium text-sm">+251</span>
+                            <input type="tel" id="bookingPhone" required placeholder="912345678" pattern="[0-9]{9}" class="w-full bg-neutral-800 border border-white/10 rounded-xl pl-16 pr-4 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm">
+                        </div>
+                    </div>
 
-                    <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors text-sm">
-                        Submit for Verification
-                    </button>
+                    <div class="text-center border-t border-white/5 pt-4">
+                        <p class="text-[11px] text-gray-500 mb-3">
+                            Enter your phone number to complete verification on the next step.
+                        </p>
+                        
+                        <button type="submit" class="w-full bg-[#2563eb] text-white hover:bg-blue-700 transition font-bold py-3.5 px-6 rounded-full tracking-wider text-xs uppercase shadow-lg">
+                            Submit for Verification
+                        </button>
+
+                        <p class="text-[11px] text-gray-500 mt-4">
+                            Or reach us directly via 
+                            <a href="mailto:info@melonacarwash.com?subject=Booking%20Request" class="text-gray-400 underline hover:text-white transition mx-0.5">Email</a> 
+                            or 
+                            <a href="tel:+251911234567" class="text-gray-400 underline hover:text-white transition mx-0.5">Phone</a>
+                        </p>
+                    </div>
                 </form>
-
-                <div class="pt-2 text-center">
-                    <p class="text-xs text-gray-500">Or reach us directly via <a href="mailto:info@melonacarwash.com?subject=Booking%20Request" class="text-blue-400 underline">Email</a> or <a href="tel:+251911234567" class="text-blue-400 underline">Phone</a></p>
-                </div>
             </div>
         </div>
 
@@ -373,165 +472,118 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-pink-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                         <div class="relative aspect-video rounded-2xl overflow-hidden border border-white/20 bg-black">
                             <img src="clean.jpg" alt="Detailing action" class="w-full h-full object-cover opacity-60">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
-                                    <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="reviews" class="py-24 px-4 bg-neutral-950 overflow-hidden relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-600/50 to-transparent"></div>
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h3 class="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-6">What Our Clients Say</h3>
-                    <p class="text-gray-400 text-lg max-w-2xl mx-auto font-medium">Join hundreds of satisfied car owners in Addis Ababa who trust Melona for that "Shine Like New" finish.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-neutral-900 border border-white/5 p-8 rounded-3xl relative">
-                        <div class="text-yellow-500 flex gap-1 mb-4">
-                            <span class="text-lg">★★★★★</span>
-                        </div>
-                        <p class="text-gray-300 italic mb-6">"The best detailing center in Ethiopia. They took care of my SUV's water spots perfectly. Their machine polish leaves an incredible shine!"</p>
-                        <div class="font-bold text-white uppercase text-sm tracking-wider">— Dawit T.</div>
-                    </div>
-                    <div class="bg-neutral-900 border border-white/5 p-8 rounded-3xl relative">
-                        <div class="text-yellow-500 flex gap-1 mb-4">
-                            <span class="text-lg">★★★★★</span>
-                        </div>
-                        <p class="text-gray-300 italic mb-6">"Amazing interior detailing. They removed the seats, deep cleaned the floor carpets, and treated the dashboard. Feels brand new inside."</p>
-                        <div class="font-bold text-white uppercase text-sm tracking-wider">— Helen M.</div>
-                    </div>
-                    <div class="bg-neutral-900 border border-white/5 p-8 rounded-3xl relative">
-                        <div class="text-yellow-500 flex gap-1 mb-4">
-                            <span class="text-lg">★★★★★</span>
-                        </div>
-                        <p class="text-gray-300 italic mb-6">"Excellent service and very meticulous work on engine chemical cleaning. The team is professional and the location is easy to find."</p>
-                        <div class="font-bold text-white uppercase text-sm tracking-wider">— Alula K.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-black border-t border-white/10 py-16 px-4">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <img src="mlogo.jpg" alt="Melona Logo" class="w-10 h-10 rounded-full border border-blue-600">
-                        <span class="font-black text-xl tracking-tight uppercase">MELONA</span>
-                    </div>
-                    <p class="text-gray-500 text-sm max-w-xs">Premium interactive automotive care treatments. Experience the peak of shine protection right here in Addis Ababa.</p>
-                </div>
-                <div>
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-4">Navigation Shortcuts</h4>
-                    <ul class="space-y-2 text-sm font-medium text-gray-400">
-                        <li><a href="#about" class="hover:text-white transition-colors">About Story</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Treatment Menu</a></li>
-                        <li><a href="#reviews" class="hover:text-white transition-colors">Client Reviews</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-4">Contact Channels</h4>
-                    <ul class="space-y-3 text-sm font-medium text-gray-400">
-                        <li class="flex items-center gap-2">📞 <a href="tel:+251911234567" class="hover:text-white">+251 911 234 567</a></li>
-                        <li class="flex items-center gap-2">✉️ <a href="mailto:info@melonacarwash.com" class="hover:text-white">info@melonacarwash.com</a></li>
-                        <li>
-                            <a href="https://wa.me/message/Q4FGYJF5HWN6P1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-400 hover:text-green-400 transition duration-200 mt-2">
-                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.453L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.437 0 9.862-4.414 9.865-9.848.001-2.63-1.019-5.101-2.875-6.958C16.351 1.986 13.89 1.96 12.01 1.96c-5.44 0-9.866 4.415-9.869 9.85-.001 1.99.539 3.93 1.562 5.657l-.999 3.648 3.734-.973zm11.367-7.34c-.266-.134-1.576-.777-1.82-.865-.243-.089-.422-.132-.599.135-.176.267-.683.865-.837 1.042-.154.177-.309.2-.575.067-.266-.134-1.124-.414-2.141-1.321-.792-.707-1.327-1.58-1.482-1.847-.154-.266-.016-.41.117-.542.121-.12.266-.31.4-.466.133-.156.177-.267.266-.445.089-.177.044-.333-.022-.466-.067-.133-.599-1.443-.82-1.976-.216-.52-.454-.45-.62-.458-.16-.008-.344-.01-.529-.01-.186 0-.487.07-.743.349-.256.278-.979.957-.979 2.333 0 1.376 1.001 2.701 1.142 2.89.141.188 1.972 3.011 4.777 4.218.667.288 1.189.46 1.594.588.671.213 1.282.183 1.765.111.539-.08 1.576-.644 1.797-1.267.221-.622.221-1.154.154-1.266-.067-.112-.244-.178-.51-.311z"/>
-                                </svg>
-                                <span>Chat on WhatsApp</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
-                &copy; 2026 Melona Car Wash & Detailing. All rights reserved. Built with precision.
-            </div>
-        </footer>
 
     </div>
 
     <script>
-        // Modal State Toggles
+        // Memory variables tracking global modal user selection
+        let selectedDate = "Wednesday, Jun 10";
+        let selectedTime = "10:00 AM";
+
         function openBookingModal() {
             const modal = document.getElementById('bookingModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.classList.add('overflow-hidden');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeBookingModal() {
             const modal = document.getElementById('bookingModal');
             modal.classList.remove('flex');
             modal.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
+            document.body.style.overflow = '';
         }
 
-        // Treatment Packages Accordion Toggles
-        function togglePackage(cardElement) {
-            const detailsBlock = cardElement.querySelector('.package-details');
-            const arrowIndicator = cardElement.querySelector('.arrow');
+        function togglePackage(element) {
+            const details = element.querySelector('.package-details');
+            const arrow = element.querySelector('.arrow');
             
-            if(detailsBlock.classList.contains('hidden')) {
-                detailsBlock.classList.remove('hidden');
-                arrowIndicator.innerText = '↑';
-                arrowIndicator.classList.add('text-blue-500');
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
             } else {
-                detailsBlock.classList.add('hidden');
-                arrowIndicator.innerText = '↓';
-                arrowIndicator.classList.remove('text-blue-500');
+                details.classList.add('hidden');
+                arrow.style.transform = 'rotate(0deg)';
             }
         }
 
-        // Automated multi-field form request forwarder to Telegram channel APIs
+        // Active State Controller for Calendar Day Grid Clicking
+        function selectCalendarDay(element, formattedString) {
+            // Find currently styled active calendar elements and normalize them
+            const gridItems = document.getElementById('calendarDaysGrid').children;
+            for (let item of gridItems) {
+                if (item.classList.contains('bg-[#2563eb]')) {
+                    item.className = "cursor-pointer py-1 hover:bg-gray-100 rounded-full";
+                }
+            }
+            
+            // Apply blue badge theme classes to the newly targeted calendar day element
+            element.className = "bg-[#2563eb] text-white font-bold rounded-full flex items-center justify-center h-6 w-6 mx-auto shadow-sm cursor-pointer";
+            
+            // Sync states to screen displays and system memory references
+            selectedDate = formattedString;
+            document.getElementById('selectedDateDisplay').innerText = formattedString + ", 2026";
+        }
+
+        // Active State Controller for Time Grid Button Clicking
+        function selectTimeSlot(element) {
+            const containerButtons = document.getElementById('timeSlotsGrid').getElementsByTagName('button');
+            for (let btn of containerButtons) {
+                btn.className = "bg-[#4a4a4a] text-gray-100 py-2 rounded-lg text-[11px] font-semibold hover:bg-gray-600 transition";
+            }
+            
+            // Highlight selected time slot with active theme classes
+            element.className = "bg-[#2563eb] text-white py-2 rounded-lg text-[11px] font-bold shadow-md ring-2 ring-blue-400 ring-offset-2 ring-offset-[#1a1a1a]";
+            selectedTime = element.innerText;
+        }
+
+        // TELEGRAM BOT WEB API CONTROLLER
         function handleFormSubmit(event) {
             event.preventDefault();
 
-            // Replace these with your actual credentials
+            // REPLACE THESE WRAPPER STRINGS WITH YOUR VALID CHAT ACCESS TOKENS
             const BOT_TOKEN = "8808100679:AAGdpDYA5VpMnmYORqazwPfhLSYnmfe0jd8"; 
             const CHAT_ID = "7893519607";
 
-            // Extract values directly from form inputs
-            const treatmentSelected = document.getElementById('bookingService').value;
-            const vehicleSizeSelected = document.getElementById('bookingCarType').value;
-            const validationPhoneNum = document.getElementById('bookingPhone').value;
-            const chosenArrivalDate = document.getElementById('bookingDate').value; // Grabs selected date string
+            const service = document.getElementById('bookingService').value;
+            const carType = document.getElementById('bookingCarType').value;
+            const phone = document.getElementById('bookingPhone').value;
 
-            // Structure the secure transmission payload layout
-            const compiledTelegramMessage = `🚨 NEW MELONA BOOKING REQUEST\n\n` +
-                                            `📦 TREATMENT: ${treatmentSelected}\n` +
-                                            `🚗 VEHICLE SIZE: ${vehicleSizeSelected}\n` +
-                                            `📅 SCHED SCHEDULE: ${chosenArrivalDate}\n` +
-                                            `📞 CONTACT PHONE: +251 ${validationPhoneNum}`;
+            const message = `🚗 *New Melona Booking Alert!* 🚗\n\n` +
+                            `🛠 *Package:* ${service}\n` +
+                            `🚘 *Vehicle Type:* ${carType}\n` +
+                            `📅 *Date:* ${selectedDate}, 2026\n` +
+                            `⏰ *Time:* ${selectedTime}\n` +
+                            `📞 *Phone:* +251${phone}`;
 
-            const endpointUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-            fetch(endpointUrl, {
+            fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: CHAT_ID,
-                    text: compiledTelegramMessage
+                    text: message,
+                    parse_mode: 'Markdown'
                 })
             })
             .then(response => {
-                if(response.ok) {
-                    alert("📅 Appointment Submitted Successfully!\n\nWe have received your desired date request and will contact you via phone shortly.");
+                if (response.ok) {
+                    alert('Booking request sent successfully! We will contact you soon.');
                     closeBookingModal();
                     document.getElementById('interactiveBookingForm').reset();
                 } else {
-                    alert("Configuration Error: Failed to push data stream. Please verify Bot Token properties.");
+                    alert('Could not submit booking over network. Please reach out via phone.');
                 }
             })
             .catch(error => {
-                alert("Network error occurred. Check internet routing access parameters and try again.");
+                console.error('Error sending message:', error);
+                alert('Network connection error. Please try again.');
             });
         }
     </script>
